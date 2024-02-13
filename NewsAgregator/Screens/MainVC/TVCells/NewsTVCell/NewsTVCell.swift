@@ -30,6 +30,7 @@ class NewsTVCell: UITableViewCell, NibLoadable {
     }
     
     func set(name: String, autor: [String], date: String, text: String, imgUrl: String) {
+        str = ""
         nameLabel.text = name
         autor.forEach { txt in
             str = str + txt

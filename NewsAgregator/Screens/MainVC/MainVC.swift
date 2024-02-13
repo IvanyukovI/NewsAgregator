@@ -42,14 +42,11 @@ class MainVC: UIViewController {
         loadBtn.addTarget(self, action: #selector(loadMore), for: .touchUpInside)
         
         setupData()
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getRequest()
+        getRequest(loadMode: false)
     }
     
     func setupData() {
@@ -58,18 +55,31 @@ class MainVC: UIViewController {
         newsData = []
         userNewsData = []
         userNewsData = UDefHelper.shared.loadNews()
-        
+        getRequest(loadMode: false)
         sections.append(.news)
         tableView.reloadData()
     }
     
-    func getRequest() {
-        let newsURL = URL(string: "https://newsdata.io/api/1/news?apikey=pub_380264e70f5a008a3735fee8e5944219dce18&country=au,us")!
+    func getRequest(loadMode: Bool) {
+        var newsURL: URL
+        if loadMode {
+            newsURL = URL(string: "https://newsdata.io/api/1/news?apikey=pub_380264e70f5a008a3735fee8e5944219dce18&country=au,us&page=\(nextPage)")!
+        } else {
+            newsURL = URL(string: "https://newsdata.io/api/1/news?apikey=pub_380264e70f5a008a3735fee8e5944219dce18&country=au,us")!
+        }
         NetworkManager.shared.request(url: newsURL, method: "GET", parameters: nil) { result, page  in
             switch result {
             case .success(let data):
-                self.newsData = data
+                if loadMode {
+                    self.newsData = data
+                } else {
+                    data.forEach { news in
+                        self.newsData.append(news)
+                    }
+                    self.nextPage = page
+                }
                 self.nextPage = page
+                self.findFavoriteMark()
                 print(self.newsData)
                 DispatchQueue.main.asyncAfter(deadline: .now() ) {
                     self.tableView.reloadData()
@@ -97,33 +107,20 @@ class MainVC: UIViewController {
         }
     }
     
-    @objc func loadMore() {
-        let newsURL = URL(string: "https://newsdata.io/api/1/news?apikey=pub_380264e70f5a008a3735fee8e5944219dce18&country=au,us&page=\(nextPage)")!
-        NetworkManager.shared.request(url: newsURL, method: "GET", parameters: nil) { result, page  in
-            switch result {
-            case .success(let data):
-                data.forEach { news in
-                    self.newsData.append(news)
+    func findFavoriteMark() {
+        for (i,_) in newsData.enumerated() {
+            for (j,_) in userNewsData.enumerated() {
+                if newsData[i].article_id == userNewsData[j].article_id {
+                    newsData[i].favorite = true
                 }
-                self.nextPage = page
-                print(self.newsData)
-                DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                    self.tableView.reloadData()
-                    self.loadMoreStat()
-                }
-            case .failure(let error):
-                print("GET Request Failed. Error: \(error)")
             }
         }
     }
     
-    
-    @objc func leftBtnDidTapped() {
-        getRequest()
+    @objc func loadMore() {
+        getRequest(loadMode: true)
         tableView.reloadData()
     }
-    
-
 }
 
 private extension MainVC {
@@ -249,19 +246,7 @@ extension MainVC: UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if currentSegment == 0, !newsData.isEmpty {
-            let height = scrollView.frame.size.height
-            let contentYOffset = scrollView.contentOffset.y
-            let distanceFromBottom = scrollView.contentSize.height - contentYOffset
-            
-            if distanceFromBottom < height {
-                loadBtn.isHidden = false
-            } else {
-                loadBtn.isHidden = true
-            }
-        } else {
-            loadBtn.isHidden = true
-        }
+        loadMoreStat()
     }
 }
 

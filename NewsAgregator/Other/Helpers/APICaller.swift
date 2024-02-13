@@ -11,9 +11,6 @@ class NetworkManager {
     static let shared = NetworkManager()
 
     private init() {}
-    
-    
-    
 
     func request(url: URL, method: String, parameters: [String: String]?, completion: @escaping (Result<[News], Error>, String) -> Void) {
         var news: [News] = []

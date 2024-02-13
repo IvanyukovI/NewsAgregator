@@ -19,7 +19,6 @@ class CurrentNewsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         title = "Current news"
         
         tableView.dataSource = self
@@ -39,8 +38,6 @@ class CurrentNewsVC: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Back"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
-        
         
         tableView.register(MainInfoTVCell.nib, forCellReuseIdentifier: MainInfoTVCell.name)
         tableView.register(DescriptionTVCell.nib, forCellReuseIdentifier: DescriptionTVCell.name)

@@ -14,8 +14,8 @@
             filePath = "NewsAgregator/Screens/MainVC/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "tabBar(_:didSelect:)"
             landmarkType = "7">
             <Locations>
@@ -62,8 +62,8 @@
             filePath = "NewsAgregator/Screens/MainVC/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "tabBar(_:didSelect:)"
             landmarkType = "7">
             <Locations>
@@ -110,8 +110,8 @@
             filePath = "NewsAgregator/Screens/CurrentNewsVC/CurrentNewsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "btnStat()"
             landmarkType = "7">
             <Locations>
@@ -161,6 +161,22 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "set(autor:date:img:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4BB5461-BED8-451F-AFA8-9AF4495ECAE9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsAgregator/Screens/MainVC/MainVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
