@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainVC" customModule="NewsAgregator" customModuleProvider="target">
+            <connections>
+                <outlet property="btnBar" destination="nKQ-GG-E0R" id="TKb-Oi-bh6"/>
+                <outlet property="loadBtn" destination="T7z-re-rOv" id="l5V-1r-i5a"/>
+                <outlet property="tableView" destination="cW4-tS-y0a" id="omg-Rn-9Q6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atq-Gn-ZWH">
+                    <rect key="frame" x="0.0" y="59" width="393" height="1"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="GET-tl-1iW"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cW4-tS-y0a">
+                    <rect key="frame" x="0.0" y="60" width="393" height="708"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKQ-GG-E0R">
+                    <rect key="frame" x="0.0" y="768" width="393" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="rAY-Qd-Hbm"/>
+                    </constraints>
+                    <items>
+                        <tabBarItem title="All news" image="newspaper.fill" catalog="system" id="NGA-Mf-a93"/>
+                        <tabBarItem tag="1" title="Favorite views" image="star.fill" catalog="system" id="2D5-FT-e1N"/>
+                    </items>
+                </tabBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7z-re-rOv">
+                    <rect key="frame" x="24" y="694" width="345" height="50"/>
+                    <color key="backgroundColor" name="btn"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ozK-cJ-K6o"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Load more">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="nKQ-GG-E0R" firstAttribute="top" secondItem="cW4-tS-y0a" secondAttribute="bottom" id="CpT-C4-xxt"/>
+                <constraint firstItem="atq-Gn-ZWH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Izm-qK-4ui"/>
+                <constraint firstItem="nKQ-GG-E0R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JfR-3h-sfr"/>
+                <constraint firstItem="T7z-re-rOv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="Qal-Qf-Y9V"/>
+                <constraint firstItem="atq-Gn-ZWH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="REo-vt-lCF"/>
+                <constraint firstItem="nKQ-GG-E0R" firstAttribute="top" secondItem="T7z-re-rOv" secondAttribute="bottom" constant="24" id="VBz-pF-NHR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T7z-re-rOv" secondAttribute="trailing" constant="24" id="agE-Hh-ICF"/>
+                <constraint firstItem="cW4-tS-y0a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dI0-cw-Fpn"/>
+                <constraint firstAttribute="bottom" secondItem="nKQ-GG-E0R" secondAttribute="bottom" constant="34" id="gDN-PV-GWu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cW4-tS-y0a" secondAttribute="trailing" id="rFi-ez-xxH"/>
+                <constraint firstItem="cW4-tS-y0a" firstAttribute="top" secondItem="atq-Gn-ZWH" secondAttribute="bottom" id="rZ1-KO-Tlf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nKQ-GG-E0R" secondAttribute="trailing" id="uLQ-vx-F3S"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="atq-Gn-ZWH" secondAttribute="trailing" id="xAz-tr-Ruk"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="newspaper.fill" catalog="system" width="128" height="112"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="btn">
+            <color red="0.035294117647058823" green="0.51764705882352946" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
